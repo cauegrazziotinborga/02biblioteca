@@ -46,11 +46,11 @@
                     <div class="col-md-6">
                         <label class="form-label">Editora</label>
                         <input type="text" name="editora" class="form-control"
-                            value="{{ livro_editar.editora|default:'' }}" required>
+                            value="{{ livro_editar.editora|default:'' }}">
                     </div>
                 </div>
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-sucess">
+                    <button type="submit" class="btn btn-success">
                         {% if livro_editar %} Atualizar {% else %} Cadastrar {% endif %}
                     </button>
                 </div>
@@ -74,7 +74,8 @@
                     <td>{{ livro.ano_publicacao }}</td>
                     <td>{{ livro.editora }}</td>
                     <td>
-                        aqui ações de edição e exclusão
+                        <a href="{% url 'edita_livro' livro.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'exclui_livro' livro.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Deseja excluir este livro?')">Excluir</a>
                     </td>
                 </tr>
                 {% empty %}
